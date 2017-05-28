@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.github.sd4324530</groupId>
-    <artifactId>fastweixin</artifactId>
-    <url>https://github.com/sd4324530/fastweixin.git</url>
-    <version>1.3.16-SNAPSHOT</version>
-    <packaging>jar</packaging>
-    <name>fastweixin</name>
+    <groupId>com.lw.wx</groupId>
+    <artifactId>wx</artifactId>
+    <url>https://github.com/wyk152/wx.git</url>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
+    <name>wx</name>
     <description>quickly department weixin server</description>
 
     <parent>
@@ -23,9 +23,9 @@
         </license>
     </licenses>
     <scm>
-        <connection>scm:git:git://github.com/sd4324530/fastweixin.git</connection>
-        <developerConnection>scm:git:git@github.com:sd4324530/fastweixin.git</developerConnection>
-        <url>https://github.com/sd4324530/fastweixin.git</url>
+        <connection>scm:git:git://github.com/wyk152/wx.git</connection>
+        <developerConnection>scm:git:git@github.com:wyk152/wx.git</developerConnection>
+        <url>https://github.com/wyk152/wx.git</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -33,13 +33,13 @@
         <developer>
             <id>peiyu</id>
             <name>peiyu</name>
-            <email>125331682@qq.com</email>
+            <email>1023510862@qq.com</email>
         </developer>
     </developers>
 
     <issueManagement>
         <system>GitHub Issues</system>
-        <url>https://github.com/sd4324530/fastweixin/issues</url>
+        <url>https://github.com/wyk152/wx/issues</url>
     </issueManagement>
 
 
@@ -123,7 +123,7 @@
     <build>
         <finalName>fastweixin</finalName>
         <plugins>
-            <plugin>
+          <!--   <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.5.1</version>
@@ -132,7 +132,7 @@
                     <target>1.6</target>
                     <encoding>UTF-8</encoding>
                 </configuration>
-            </plugin>
+            </plugin> -->
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

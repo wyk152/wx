@@ -10,6 +10,7 @@ import com.github.sd4324530.fastweixin.util.StrUtil;
 import org.apache.http.client.utils.DateUtils;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,12 +26,14 @@ public class FastweixinTest {
 
     private ApiConfig config;
 
-//    @Before
+    @Before
     public void init() {
-//        String appid = "wx8c33ff895df5d0d9";
-//        String secret = "0705aafac0bef944de4c485d71fce900";
-        String appid = "wx337021cfcc3e32fb";
-        String secret = "e244f1244f0ba2798546e0450d3045ea";
+    	 String appid = "wx713e22041688a79b";
+         String secret = "b578624715323cf0709c16817619d427";
+       /* String appid = "wx8c33ff895df5d0d9";
+        String secret = "0705aafac0bef944de4c485d71fce900";*/
+ //       String appid = "wx337021cfcc3e32fb";
+ //       String secret = "e244f1244f0ba2798546e0450d3045ea";
         config = new ApiConfig(appid, secret);
         TestConfigChangeHandle configChangeHandle = new TestConfigChangeHandle();
         config.addHandle(configChangeHandle);
@@ -40,14 +43,16 @@ public class FastweixinTest {
      *AppID(应用ID)wx8c33ff895df5d0d9
      *AppSecret(应用密钥)0705aafac0bef944de4c485d71fce900
      */
-//    @Test
+    @Test
     public void test() {
-        String appid = "wx8c33ff895df5d0d9";
-        String secret = "0705aafac0bef944de4c485d71fce900";
+    	 String appid = "wx713e22041688a79b";
+         String secret = "b578624715323cf0709c16817619d427";
+       /* String appid = "wx8c33ff895df5d0d9";
+        String secret = "0705aafac0bef944de4c485d71fce900";*/
         ApiConfig config = new ApiConfig(appid, secret);
         TestConfigChangeHandle configChangeHandle = new TestConfigChangeHandle();
         config.addHandle(configChangeHandle);
-//        createMenu(config);
+        createMenu(config);
 //        getUserList(config);
 //        uploadMedia(config);
 //        downloadMedia(config);
@@ -93,11 +98,11 @@ public class FastweixinTest {
         sub1.setName("授权");
         sub1.setType(MenuType.VIEW);
         sub1.setUrl("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxafb7b8f9457b5d50&redirect_uri=http://121.40.140.41/erhuluanzi/app/testGet&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect");
+        
         MenuButton sub2 = new MenuButton();
         sub2.setKey("sub2");
         sub2.setName("点击");
         sub2.setType(MenuType.CLICK);
-
 
         List<MenuButton> list = new ArrayList<MenuButton>();
         list.add(sub1);
@@ -105,8 +110,33 @@ public class FastweixinTest {
         //将子菜单放入主菜单里
         main1.setSubButton(list);
 
+        //准备一级主菜单
+        MenuButton main2 = new MenuButton();
+        main2.setType(MenuType.CLICK);
+        main2.setKey("main2");
+        main2.setName("测试2");
+        //准备子菜单
+        MenuButton subs1 = new MenuButton();
+        subs1.setKey("subs1");
+        subs1.setName("授权");
+        subs1.setType(MenuType.VIEW);
+        subs1.setUrl("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxafb7b8f9457b5d50&redirect_uri=http://121.40.140.41/erhuluanzi/app/testGet&response_type=code&scope=snsapi_userinfo&state=123#wechat_redirect");
+        
+        MenuButton subs2 = new MenuButton();
+        subs2.setKey("subs2");
+        subs2.setName("点击");
+        subs2.setType(MenuType.CLICK);
+
+        List<MenuButton> list2 = new ArrayList<MenuButton>();
+        list2.add(subs1);
+        list2.add(subs2);
+        //将子菜单放入主菜单里
+        main2.setSubButton(list2);
+        
+        
         List<MenuButton> mainList = new ArrayList<MenuButton>();
         mainList.add(main1);
+        mainList.add(main2);
         //将主菜单加入请求对象
         request.setButton(mainList);
         LOG.debug(request.toJsonString());
